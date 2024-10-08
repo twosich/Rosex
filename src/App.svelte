@@ -3,9 +3,9 @@
 import navbar from './lib/navbar.svelte';
 </script>
 
-<div>
-  <div>
+<body class="bg-pink-600 h-screen w-full">
+  <div class="p-2">
     <Navbar />
   </div>
-</div>
+</body>
 
