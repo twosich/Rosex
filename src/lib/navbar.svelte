@@ -1,6 +1,7 @@
 <script>
     import icon from '../assets/icon.png';
     import github from '../assets/github.png'
+    import Post from './ui/button.svelte'
 </script>
 
 <div class="flex flex-row p-4 bg-black rounded-3xl">
@@ -17,8 +18,6 @@
     </div>
 
     <div class="flex-none">
-        <button class=" rounded-2xl p-3 bg-gradient-to-r from-pink-600 to-pink-800 hover:bg-pink-300">
-            <h1 class="text-2xl p-1 text-white font-bold">Init Rox</h1>
-        </button>
+        <Post />
     </div>
 </div>
