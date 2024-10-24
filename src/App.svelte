@@ -61,8 +61,4 @@
     </div>
   </div>
 
-  <div class="input-container">
-    <input type="text" bind:value={newImageUrl} placeholder="URL de la imagen" />
-    <button on:click={addImage}>Agregar Imagen</button>
-  </div>
 </body>
