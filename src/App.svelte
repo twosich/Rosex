@@ -1,7 +1,7 @@
 <script>
   import Navbar from './lib/navbar.svelte';
   import Rules from './lib/rules.svelte';
-  import { onMount onDestroy } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import axios from 'axios';
 
   let imageLinks = [];
