@@ -1,7 +1,38 @@
 <script>
-    import Navbar from './lib/navbar.svelte';
-    import Post from './lib/post.svelte';
-    import Rules from './lib/rules.svelte';
+  import Navbar from './lib/navbar.svelte';
+  import Rules from './lib/rules.svelte';
+  import { onMount } from 'svelte';
+  import axios from 'axios';
+
+  let imageLinks = [];
+  let newImageUrl = '';
+
+  const fetchImages = async () => {
+    try {
+      const response = await axios.get('https://rosexdart.globeapp.dev/webhook'); 
+      imageLinks = response.data.image_links;
+    } catch (error) {
+      console.error('Error al obtener imágenes:', error);
+    }
+  };
+
+  const addImage = async () => {
+    if (!newImageUrl) return;
+
+    try {
+      await axios.post('https://rosexdart.globeapp.dev/webhook', {
+        attachments: [{ url: newImageUrl, content_type: 'image/jpeg' }]
+      });
+      newImageUrl = '';
+      fetchImages(); 
+    } catch (error) {
+      console.error('Error al agregar imagen:', error);
+    }
+  };
+
+  onMount(() => {
+    fetchImages();
+  });
 </script>
 
 <body class="bg-pink-600">
@@ -12,28 +43,11 @@
   <div class="container mx-auto p-2">   
     <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-4">
       <Rules />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+        {#each imageLinks as imageLink}
+            <div class="relative rounded-lg bg-black">
+              <img src={imageLink} alt="Post" class=" transition-all duration-300 hover:scale-105 w-full h-auto object-cover rounded-lg">
+            </div>
+        {/each}
     </div>
   </div>
 
