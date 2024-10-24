@@ -1,5 +1,5 @@
 <script>
-    import icon from '../assets/icon.png';
+    import icon from '../assets/icon.png'
     import github from '../assets/github.png'
     import Post from './ui/button.svelte'
 </script>

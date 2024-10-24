@@ -6,6 +6,7 @@
 
   let imageLinks = [];
   let newImageUrl = '';
+  let interval;
 
   const fetchImages = async () => {
     try {
@@ -33,6 +34,17 @@
   onMount(() => {
     fetchImages();
   });
+
+  onMount(() => {
+    fetchImages(); // Obtén imágenes al inicio
+    interval = setInterval(fetchImages, 5000); // Consulta cada 5 segundos
+  });
+
+  // Limpia el intervalo al destruir el componente
+  onDestroy(() => {
+    clearInterval(interval);
+  });
+
 </script>
 
 <body class="bg-pink-600">
