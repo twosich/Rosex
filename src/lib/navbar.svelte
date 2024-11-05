@@ -1,7 +1,7 @@
-<script>
-    import icon from '../assets/icon.png'
-    import github from '../assets/github.png'
-    import Post from './ui/button.svelte'
+<script lang="ts">
+    import icon from '../assets/icon.png';
+    import github from '../assets/github.png';
+    import Post from './ui/button.svelte';
 </script>
 
 <div class="flex flex-row p-4 bg-black rounded-3xl items-center md:flex-row flex-col">

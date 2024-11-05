@@ -1,5 +1,5 @@
-<script>
-    import Rules from '../assets/rules.jpg'
+<script lang=ts>
+    import Rules from '../assets/rules.jpg';
 </script>
 
 <div class="relative rounded-lg bg-black">
